@@ -642,7 +642,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6473937c5150dfe479242e0a284f5a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: e322360a37eb99d42906fab9a837ffe2, type: 3}
+  clip: {fileID: 8300000, guid: cb429ab029ec71d4cbf35db85243c642, type: 3}
+  hurryBGM: {fileID: 0}
 --- !u!82 &1587017007
 AudioSource:
   m_ObjectHideFlags: 0
