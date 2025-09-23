@@ -21,7 +21,7 @@ public class AudioManager : MonoBehaviour
     public AudioClip matchMiss; //카드 틀림
     public AudioClip Matched; //카드 맞춤
     public AudioClip cardFlip; //카드 뒤집기 효과음
-    public AudioClip GameStartSFX; //게임 시작 효과음
+    public AudioClip buttonClickSFX; //버튼 클릭 효과음 (게임 시작 버튼에도 응용가능한 효과음)
 
     private void Awake()
     {
@@ -95,9 +95,9 @@ public class AudioManager : MonoBehaviour
         audioSource.PlayOneShot(matchMiss);
     }
 
-    public void StartSFX()  // 시작 버튼 효과음
+    public void ClickSFX()  // 시작 버튼을 포함한 대부분의 버튼(다음스테이지라던가) 클릭 사운드로 활용하기 좋게 Click 이란 이름으로 지었습니다.
     {
-        audioSource.PlayOneShot(GameStartSFX);
+        audioSource.PlayOneShot(buttonClickSFX);
     }
 
     public void Cardflip()  // 카드 뒤집기 효과음
