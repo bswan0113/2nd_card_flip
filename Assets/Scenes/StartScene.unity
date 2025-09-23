@@ -642,11 +642,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6473937c5150dfe479242e0a284f5a86, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  clip: {fileID: 8300000, guid: cb429ab029ec71d4cbf35db85243c642, type: 3}
+  clip: {fileID: 8300000, guid: a45010c3ee3f9094fb82831e397e7c54, type: 3}
   hurryBGM: {fileID: 0}
   clearBGM: {fileID: 0}
   failBGM: {fileID: 0}
   hiddenBGM: {fileID: 0}
+  StartBGM: {fileID: 0}
   matchMiss: {fileID: 0}
   Matched: {fileID: 0}
   cardFlip: {fileID: 0}

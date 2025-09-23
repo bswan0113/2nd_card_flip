@@ -269,6 +269,7 @@ MonoBehaviour:
   clearBGM: {fileID: 8300000, guid: cb429ab029ec71d4cbf35db85243c642, type: 3}
   failBGM: {fileID: 8300000, guid: f3b32dd9a5c455744a274e32c56f58e4, type: 3}
   hiddenBGM: {fileID: 0}
+  StartBGM: {fileID: 8300000, guid: a45010c3ee3f9094fb82831e397e7c54, type: 3}
   matchMiss: {fileID: 8300000, guid: 802c824776565e54ab9c185a85ff5b06, type: 3}
   Matched: {fileID: 8300000, guid: b20888bdc566ccc418c243dc1d69e010, type: 3}
   cardFlip: {fileID: 8300000, guid: 7aa038b55f2a0bc4482089b7dcf171af, type: 3}

@@ -10,11 +10,12 @@ public class AudioManager : MonoBehaviour
     AudioSource audioSource;
    
    //BGM 변수들입니다.
-    public AudioClip clip; //기본 BGM
+    public AudioClip clip; //기본 BGM, 꼬일까봐 기본 BGM의 변수이름은 디폴트였던 clip으로 해놨습니다.
     public AudioClip hurryBGM; // 제한시간 얼마 안남았을때 BGM
     public AudioClip clearBGM; // 스테이지 클리어 BGM
     public AudioClip failBGM; // 스테이지 실패 BGM
     public AudioClip hiddenBGM; // 히든 스테이지 진입 BGM
+    public AudioClip StartBGM; // (StartScene) 전용 BGM
 
 
     //효과음 변수들입니다.
@@ -39,11 +40,20 @@ public class AudioManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
 
-        audioSource.clip = this.clip; //꼬일까봐 변수이름은 디폴트였던 clip으로 해놨습니다.
+        audioSource.clip = this.clip; 
         audioSource.loop = true;
         audioSource.Play();
     }
     // 이하는 BGM 관련 매서드들 입니다 ========================
+
+    public void PlayBGM(AudioClip clip) //같은 곡일 경우 교체 하지 않기 위한 매서드입니다.
+    {
+        if (audioSource.clip == clip) return;
+        audioSource.clip = clip;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+
     public void ChangeTohurryBGM() //일정 시간 이하일 경우 출력되는 BGM
     {
         if (audioSource.clip != hurryBGM)
@@ -77,9 +87,16 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
     }
 
-    public void StartsceneBGM() // 시작화면에서의 BGM
-    { 
-        
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode) // 시작화면(StartScene)에서의 BGM과 (MainScene)에서의 BGM을 바꾸기 로직입니다(실험)
+    {
+        if (scene.name == "StartScene")
+        {
+            PlayBGM(StartBGM);
+        }
+        else if (scene.name == "MainScene")
+        {
+            PlayBGM(clip);
+        }
     }
 
     // 이하는 효과음 관련 매서드들 입니다. ============================
