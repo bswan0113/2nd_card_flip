@@ -39,6 +39,7 @@ public class AudioManager : MonoBehaviour
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
+        SceneManager.sceneLoaded += OnSceneLoaded;
 
         audioSource.clip = this.clip; 
         audioSource.loop = true;
