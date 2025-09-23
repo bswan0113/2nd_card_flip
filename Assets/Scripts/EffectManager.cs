@@ -10,6 +10,8 @@ public class EffectManager : MonoBehaviour
     public Text startCountdown;
 
     public GameObject dust;
+
+    public bool remain10Sec = false;
     // Update is called once per frame
 
     private void Awake()
@@ -27,11 +29,7 @@ public class EffectManager : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown("c"))
-        {
-            StartCoroutine(ShakeCamera(0.5f));
-            StartCoroutine(DropDusts(0.5f));
-        }
+
     }
 
 
@@ -104,7 +102,7 @@ public class EffectManager : MonoBehaviour
 
         while (timeCount < st)
         {
-            Vector3 ranPos = new Vector3(Random.Range(-2.6f, +2.6f), 5.0f, 0f);
+            Vector3 ranPos = new Vector3(Random.Range(-2.6f, +2.6f), 5.0f, 1.5f);
             GameObject go = Instantiate(dust, this.transform);
             go.transform.position = ranPos;
             go.transform.localScale *= Random.Range(0.5f, 1.0f);

@@ -62,7 +62,7 @@ public class GameManager : MonoBehaviour
     {
         audioSource = GetComponent<AudioSource>();
         selectStageContainer.SetActive(true);
-        // PlayerPrefs.SetInt("playerBestScore", 3);
+        PlayerPrefs.SetInt("playerBestScore", 3);
         // isHiddenStageActive = true;
         playerBestScore = PlayerPrefs.GetInt("playerBestScore");
     }
@@ -77,11 +77,20 @@ public class GameManager : MonoBehaviour
         if (currentTime < stageManager.stage.timeLimit)
         {
             timeTxT.text = (stageManager.stage.timeLimit - currentTime).ToString("N2");
+            Debug.Log(stageManager.stage.timeLimit);
         }
         else
         {
             timeTxT.text = "0.00";
             GameOver();
+        }
+        // zoo
+        if (stageManager.stage.timeLimit - currentTime < 10f &&
+            !EffectManager.instance.remain10Sec)
+        {
+            EffectManager.instance.remain10Sec = true;
+            StartCoroutine(EffectManager.instance.ShakeCamera(0.5f));
+            StartCoroutine(EffectManager.instance.DropDusts(0.5f));
         }
 
 

@@ -630,6 +630,7 @@ Transform:
   - {fileID: 7805480}
   - {fileID: 1353798545}
   - {fileID: 2081182714}
+  - {fileID: 1655527422}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &609566553
@@ -1297,6 +1298,54 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1378891973}
   m_CullTransparentMesh: 1
+--- !u!1 &1655527421
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1655527422}
+  - component: {fileID: 1655527423}
+  m_Layer: 0
+  m_Name: EffectManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1655527422
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655527421}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 530961007}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1655527423
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1655527421}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1139c3f814dc92b458bfc2f166d79727, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  mc: {fileID: 519420031}
+  startCountdown: {fileID: 609566555}
+  dust: {fileID: 6596833381722989830, guid: 69881dbe7dc560949bc9649daab528bf, type: 3}
+  remain10Sec: 0
 --- !u!1 &1804111210
 GameObject:
   m_ObjectHideFlags: 0
@@ -1643,10 +1692,10 @@ MonoBehaviour:
   selectedStageNum: {fileID: 1378891975}
   allStages:
   - boardSize: 4
-    timeLimit: 1
+    timeLimit: 20
     isHiddenStage: 0
   - boardSize: 6
-    timeLimit: 1
+    timeLimit: 120
     isHiddenStage: 0
   - boardSize: 8
     timeLimit: 120
