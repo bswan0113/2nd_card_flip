@@ -38,7 +38,7 @@ public class Card : MonoBehaviour
         audioSource.PlayOneShot(clip);
         anim.SetBool("isOpen", true);
         front.SetActive(true);
-        back.SetActive(false);
+        //back.SetActive(false);
 
         if (Gamemanager.instance.firstcard == null)
         {
@@ -66,10 +66,11 @@ public class Card : MonoBehaviour
         Invoke("CloseCardInvoke", 1.0f);
     }
 
-    void CloseCardInvoke() 
+    void CloseCardInvoke()
     {
         anim.SetBool("isOpen", false);
         front.SetActive(false);
         back.SetActive(true);
+        back.transform.localScale = new Vector3(1f, 1f, 1f);
     }
 }
