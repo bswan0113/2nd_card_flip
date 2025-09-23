@@ -8,6 +8,8 @@ public class EffectManager : MonoBehaviour
     public static EffectManager instance;
     public Camera mc;
     public Text startCountdown;
+
+    public GameObject dust;
     // Update is called once per frame
 
     private void Awake()
@@ -25,7 +27,11 @@ public class EffectManager : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetKeyDown("c"))
+        {
+            StartCoroutine(ShakeCamera(0.5f));
+            StartCoroutine(DropDusts(0.5f));
+        }
     }
 
 
@@ -90,5 +96,21 @@ public class EffectManager : MonoBehaviour
             yield return null;
         }
         startCountdown.text = "";
+    }
+
+    public IEnumerator DropDusts(float st)
+    {
+        float timeCount = 0f;
+
+        while (timeCount < st)
+        {
+            Vector3 ranPos = new Vector3(Random.Range(-2.6f, +2.6f), 5.0f, 0f);
+            GameObject go = Instantiate(dust, this.transform);
+            go.transform.position = ranPos;
+            go.transform.localScale *= Random.Range(0.5f, 1.0f);
+            timeCount += 0.05f;
+            yield return new WaitForSeconds(0.05f);
+        }
+
     }
 }
