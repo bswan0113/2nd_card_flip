@@ -4,17 +4,19 @@ using UnityEngine;
 
 public class AudioManager : MonoBehaviour
 {
-    public static AudioManager instance;
+    //시험
+    public static AudioManager ins;
 
     AudioSource audioSource;
     public AudioClip clip;
+    public AudioClip hidden;
 
 
     private void Awake()
     {
-        if (instance == null)
+        if (ins == null)
         {
-            instance = this;
+            ins = this;
             DontDestroyOnLoad(gameObject);
         }
         else
@@ -24,9 +26,20 @@ public class AudioManager : MonoBehaviour
     }
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();  
+        audioSource = GetComponent<AudioSource>();
 
         audioSource.clip = this.clip;
         audioSource.Play();
     }
+
+    //시험
+    public void HiddenBg()
+    {
+        if (audioSource.clip = this.clip)
+        {
+            Destroy(gameObject);
+            audioSource.clip = this.hidden;
+        }
+    }
+
 }
