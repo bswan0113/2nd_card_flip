@@ -1,12 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class AudioManager : MonoBehaviour
 {
     public static AudioManager instance;
 
     AudioSource audioSource;
+   
    //BGM 변수들입니다.
     public AudioClip clip; //기본 BGM
     public AudioClip hurryBGM; // 제한시간 얼마 안남았을때 BGM
@@ -18,7 +20,7 @@ public class AudioManager : MonoBehaviour
     //효과음 변수들입니다.
     public AudioClip matchMiss; //카드 틀림
     public AudioClip Matched; //카드 맞춤
-    public AudioClip cardFlipBGM; //카드 뒤집기 효과음
+    public AudioClip cardFlip; //카드 뒤집기 효과음
     public AudioClip GameStartSFX; //게임 시작 효과음
 
     private void Awake()
@@ -85,22 +87,22 @@ public class AudioManager : MonoBehaviour
 
     public void Cardmatched() // 카드 일치시 효과음
     {
-        
+        audioSource.PlayOneShot(Matched);
     }
 
     public void CardMiss() // 카드 불일치시 효과음
-    { 
-        
+    {
+        audioSource.PlayOneShot(matchMiss);
     }
 
     public void StartSFX()  // 시작 버튼 효과음
-    { 
-        
+    {
+        audioSource.PlayOneShot(GameStartSFX);
     }
 
     public void Cardflip()  // 카드 뒤집기 효과음
-    { 
-        
+    {
+        audioSource.PlayOneShot(cardFlip);
     }
 
 }
