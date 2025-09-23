@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public class AudioManager : MonoBehaviour
@@ -27,6 +25,6 @@ public class AudioManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();  
 
         audioSource.clip = this.clip;
-        audioSource.Play();
+        // audioSource.Play();
     }
 }
