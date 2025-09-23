@@ -39,6 +39,11 @@ public class Gamemanager : MonoBehaviour
         {
             time += Time.deltaTime;
             timeTxT.text = time.ToString("N2");
+
+            if (30.0f - time <= 10.0f)
+            { 
+                AudioManager.instance.ChangeTohurryBGM();
+            }
         }
         else 
         {

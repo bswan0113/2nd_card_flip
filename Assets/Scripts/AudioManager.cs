@@ -8,6 +8,8 @@ public class AudioManager : MonoBehaviour
 
     AudioSource audioSource;
     public AudioClip clip;
+    public AudioClip hurryBGM;
+
 
 
     private void Awake()
@@ -24,9 +26,21 @@ public class AudioManager : MonoBehaviour
     }
     void Start()
     {
-        audioSource = GetComponent<AudioSource>();  
+        audioSource = GetComponent<AudioSource>();
 
         audioSource.clip = this.clip;
+        audioSource.loop = true;
         audioSource.Play();
+    }
+
+    public void ChangeTohurryBGM()
+    {
+        if (audioSource.clip != hurryBGM)
+        {
+            audioSource.clip = hurryBGM;
+            audioSource.loop = true;
+            audioSource.Play();
+        }
+        
     }
 }
