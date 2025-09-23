@@ -266,6 +266,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: e322360a37eb99d42906fab9a837ffe2, type: 3}
   hurryBGM: {fileID: 8300000, guid: 51ab2b6657e00eb4ab6c5bb269969df6, type: 3}
+  clearBGM: {fileID: 8300000, guid: cb429ab029ec71d4cbf35db85243c642, type: 3}
+  failBGM: {fileID: 8300000, guid: f3b32dd9a5c455744a274e32c56f58e4, type: 3}
+  hiddenBGM: {fileID: 0}
+  matchMiss: {fileID: 8300000, guid: 802c824776565e54ab9c185a85ff5b06, type: 3}
+  Matched: {fileID: 8300000, guid: b20888bdc566ccc418c243dc1d69e010, type: 3}
+  cardFlip: {fileID: 8300000, guid: 7aa038b55f2a0bc4482089b7dcf171af, type: 3}
+  buttonClickSFX: {fileID: 8300000, guid: de7024bc1de7ad94fb98f166ff5973bf, type: 3}
 --- !u!1 &167300791
 GameObject:
   m_ObjectHideFlags: 0

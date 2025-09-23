@@ -644,6 +644,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   clip: {fileID: 8300000, guid: cb429ab029ec71d4cbf35db85243c642, type: 3}
   hurryBGM: {fileID: 0}
+  clearBGM: {fileID: 0}
+  failBGM: {fileID: 0}
+  hiddenBGM: {fileID: 0}
+  matchMiss: {fileID: 0}
+  Matched: {fileID: 0}
+  cardFlip: {fileID: 0}
+  buttonClickSFX: {fileID: 0}
 --- !u!82 &1587017007
 AudioSource:
   m_ObjectHideFlags: 0
