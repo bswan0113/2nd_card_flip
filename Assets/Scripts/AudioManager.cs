@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
     //효과음 변수들입니다.
     public AudioClip matchMiss; //카드 틀림
     public AudioClip Matched; //카드 맞춤
+    public AudioClip cardFlipBGM; //카드 뒤집기 효과음
     public AudioClip GameStartSFX; //게임 시작 효과음
 
     private void Awake()
@@ -40,7 +41,7 @@ public class AudioManager : MonoBehaviour
         audioSource.loop = true;
         audioSource.Play();
     }
-    // 이하는 BGM 관련 매서드들 입니다
+    // 이하는 BGM 관련 매서드들 입니다 ========================
     public void ChangeTohurryBGM() //일정 시간 이하일 경우 출력되는 BGM
     {
         if (audioSource.clip != hurryBGM)
@@ -79,7 +80,7 @@ public class AudioManager : MonoBehaviour
         
     }
 
-    // 이하는 효과음 관련 매서드들 입니다.
+    // 이하는 효과음 관련 매서드들 입니다. ============================
 
 
     public void Cardmatched() // 카드 일치시 효과음
@@ -96,4 +97,10 @@ public class AudioManager : MonoBehaviour
     { 
         
     }
+
+    public void Cardflip()  // 카드 뒤집기 효과음
+    { 
+        
+    }
+
 }
