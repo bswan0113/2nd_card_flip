@@ -35,11 +35,10 @@ public class AudioManager : MonoBehaviour
     //시험
     public void HiddenBg()
     {
-        if (audioSource.clip = this.clip)
-        {
-            Destroy(gameObject);
-            audioSource.clip = this.hidden;
-        }
+
+        audioSource.clip = this.hidden;
+        audioSource.Play();
+        
     }
 
 }
