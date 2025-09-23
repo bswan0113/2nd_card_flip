@@ -48,7 +48,7 @@ public class RewardedButton : MonoBehaviour, IUnityAdsLoadListener, IUnityAdsSho
     {
         // Disable the button:
         // Then show the ad:
-        Advertisement.Show(_adUnitId, this);
+        // Advertisement.Show(_adUnitId, this);
     }
 
     // Implement the Show Listener's OnUnityAdsShowComplete callback method to determine if the user gets a reward:

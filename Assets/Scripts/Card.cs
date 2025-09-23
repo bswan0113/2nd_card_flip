@@ -15,19 +15,13 @@ public class Card : MonoBehaviour
     public AudioClip clip;
 
     public SpriteRenderer frontImage;
-    // Start is called before the first frame update
+
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
     }
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
-    public void Setting(int number) 
+    public void Setting(int number)
     {
         idx = number;
         frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");
@@ -40,19 +34,19 @@ public class Card : MonoBehaviour
         front.SetActive(true);
         //back.SetActive(false);
 
-        if (Gamemanager.instance.firstcard == null)
+        if (GameManager.instance.firstCard == null)
         {
-            Gamemanager.instance.firstcard = this;
+            GameManager.instance.firstCard = this;
         }
 
         else
         { 
-            Gamemanager.instance.secondcard = this;
-            Gamemanager.instance.Matched();
+            GameManager.instance.secondCard = this;
+            GameManager.instance.MatchCards();
         }
     }
 
-    public void DestoryCard() 
+    public void DestroyCard()
     {
         Invoke("DestroyCardInvoke", 1.0f);
     }
