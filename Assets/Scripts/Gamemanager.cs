@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text timeTxT;
     [SerializeField] private GameObject endTxt;
 
-    [SerializeField] private GameObject selectStageContainer;
+    [SerializeField] public GameObject selectStageContainer;
 
     [SerializeField] private Button startBtn;
 

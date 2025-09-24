@@ -12,8 +12,9 @@ public class EffectManager : MonoBehaviour
     public GameObject dust;
 
     public bool remain10Sec = false;
-    // Update is called once per frame
+    public bool isTimerStart = false;
 
+    // Update is called once per frame
     private void Awake()
     {
         if (instance == null)
@@ -41,7 +42,7 @@ public class EffectManager : MonoBehaviour
 
         while (timeCount < st)
         {
-            float offsetX = Random.Range(-0.25f, 0.25f);
+            float offsetX = Random.Range(-0.25f, 0.25f) * mc.orthographicSize * 0.1f;
 
             mc.transform.localPosition = new Vector3(originPos.x + offsetX, originPos.y, originPos.z);
 
@@ -51,6 +52,25 @@ public class EffectManager : MonoBehaviour
         mc.transform.localPosition = originPos;
     }
 
+    public IEnumerator DropDusts(float st)
+    {
+        float timeCount = 0f;
+
+        while (timeCount < st)
+        {
+            //Vector3 ranPos = new Vector3(Random.Range(-2.6f, +2.6f), 5.0f, 1.5f);
+            float x = Screen.width * Random.Range(0f, 1f);
+            float y = Screen.height;
+            Vector3 ranPos = mc.ScreenToWorldPoint(new Vector3(x, y, 1f));
+
+            GameObject go = Instantiate(dust, this.transform);
+            go.transform.position = ranPos;
+            go.transform.localScale *= Random.Range(0.2f, 0.4f) * mc.orthographicSize * 0.5f;
+            timeCount += 0.05f;
+            yield return new WaitForSeconds(0.05f);
+        }
+
+    }
 
     // move all cards to right positions
     public IEnumerator PositionCards()
@@ -94,21 +114,13 @@ public class EffectManager : MonoBehaviour
             yield return null;
         }
         startCountdown.text = "";
+        GameManager.instance.GameStart();
     }
 
-    public IEnumerator DropDusts(float st)
+    public void GameStartRoutine()
     {
-        float timeCount = 0f;
-
-        while (timeCount < st)
-        {
-            Vector3 ranPos = new Vector3(Random.Range(-2.6f, +2.6f), 5.0f, 1.5f);
-            GameObject go = Instantiate(dust, this.transform);
-            go.transform.position = ranPos;
-            go.transform.localScale *= Random.Range(0.5f, 1.0f);
-            timeCount += 0.05f;
-            yield return new WaitForSeconds(0.05f);
-        }
-
-    }
+        StartCoroutine(GameStartCountdown(3.0f));
+        GameManager.instance.selectStageContainer.SetActive(false);
+        Time.timeScale = 1.0f;
+    } 
 }
