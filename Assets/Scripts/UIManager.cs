@@ -11,7 +11,7 @@ public class UIManager : MonoBehaviour
     public GameObject Ending;
 
 
-    private void Awake()
+    private void Awake ()
     {
         if (instance == null)
         {
