@@ -24,7 +24,9 @@ public class BoardManager : MonoBehaviour
             GameObject go = Instantiate(cardPrefab, transform);
             float x = (i % boardSize) * boardSpacingX;
             float y = (i / boardSize) * boardSpacingY;
-            go.transform.position = new Vector2(x,y);
+            //go.transform.position = new Vector2(x,y);
+            // zoo
+            StartCoroutine(EffectManager.instance.MoveCard(go, new Vector3(x, y, 1f)));
             Card cardComponent = go.GetComponent<Card>();
 
             if (cardComponent != null)
