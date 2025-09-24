@@ -30,10 +30,7 @@ public class UIManager : MonoBehaviour
         {
             UnlockImage.SetActive(true);
         }
-        else
-        {
-            Debug.Log("아래스테이지가 클리어되지 않았습니다");
-        }
+   
     }
     public void Endings()
     {
@@ -42,10 +39,7 @@ public class UIManager : MonoBehaviour
         {
             Ending.SetActive(true);
         }
-        else
-        {
-            Debug.Log("아래스테이지가 클리어되지 않았습니다");
-        }
+  
     }
 }
 
