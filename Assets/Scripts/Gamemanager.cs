@@ -13,7 +13,6 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject endTxt;
 
     [SerializeField] public GameObject selectStageContainer;
-
     [SerializeField] private Button startBtn;
 
     public Card firstCard;
@@ -106,6 +105,7 @@ public class GameManager : MonoBehaviour
         if (isHiddenStageActive)
         {
             float limit = currentStage.timeLimit;
+
             if (limit > HiddenStageMinimumTimeLimit)
             {
                 currentStage.timeLimit -= HiddenStageTimeDecrease * hiddenStageClearCount;
