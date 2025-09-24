@@ -12,7 +12,7 @@ public class GameManager : MonoBehaviour
     [SerializeField] private Text timeTxT;
     [SerializeField] private GameObject endTxt;
 
-    [SerializeField] private GameObject selectStageContainer;
+    [SerializeField] public GameObject selectStageContainer;
 
     [SerializeField] private Button startBtn;
 
@@ -79,9 +79,12 @@ public class GameManager : MonoBehaviour
             
             timeTxT.text = (stageManager.stage.timeLimit - currentTime).ToString("N2");
 
-            if (30.0f - currentTime <= 10.0f)
+            if (stageManager.stage.timeLimit - currentTime <= 10.0f && !EffectManager.instance.remain10Sec)
             {
                 AudioManager.instance.ChangeTohurryBGM();
+                StartCoroutine(EffectManager.instance.ShakeCamera(0.5f));
+                StartCoroutine(EffectManager.instance.DropDusts(0.5f));
+                EffectManager.instance.remain10Sec = true;
             }
         }
         else
@@ -97,7 +100,7 @@ public class GameManager : MonoBehaviour
     {
         selectStageContainer.SetActive(false);
         boardManager.ClearBoard();
-        
+
         StageData currentStage = stageManager.stage;
 
         if (isHiddenStageActive)
@@ -105,11 +108,11 @@ public class GameManager : MonoBehaviour
             float limit = currentStage.timeLimit;
             if (limit > HiddenStageMinimumTimeLimit)
             {
-                currentStage.timeLimit -= HiddenStageTimeDecrease *hiddenStageClearCount;
+                currentStage.timeLimit -= HiddenStageTimeDecrease * hiddenStageClearCount;
             }
 
         }
-        
+
         int[] cardDeck = stageManager.GenerateCardDeck(currentStage);
         totalCardCount = cardDeck.Length;
         boardManager.CreateBoard(cardDeck, currentStage.boardSize);
@@ -118,6 +121,7 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 1.0f;
         endTxt.SetActive(false);
         isGameStarted = true;
+        EffectManager.instance.remain10Sec = false;
     }
 
     public void MatchCards()
