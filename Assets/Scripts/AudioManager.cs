@@ -1,5 +1,3 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
@@ -44,6 +42,10 @@ public class AudioManager : MonoBehaviour
          
         audioSource.loop = true;
         audioSource.Play();
+
+        audioSource.clip = this.clip;
+
+
     }
     // 이하는 BGM 관련 매서드들 입니다 ========================
 
