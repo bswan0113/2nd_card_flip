@@ -76,7 +76,13 @@ public class GameManager : MonoBehaviour
 
         if (currentTime < stageManager.stage.timeLimit)
         {
+            
             timeTxT.text = (stageManager.stage.timeLimit - currentTime).ToString("N2");
+
+            if (30.0f - currentTime <= 10.0f)
+            {
+                AudioManager.instance.ChangeTohurryBGM();
+            }
         }
         else
         {
