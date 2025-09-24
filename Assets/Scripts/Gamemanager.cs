@@ -13,6 +13,8 @@ public class GameManager : MonoBehaviour
     [SerializeField] private GameObject endTxt;
 
     [SerializeField] public GameObject selectStageContainer;
+    [SerializeField] public GameObject hiddenBackground;
+
     [SerializeField] private Button startBtn;
 
     public Card firstCard;
@@ -64,6 +66,7 @@ public class GameManager : MonoBehaviour
         // PlayerPrefs.SetInt("playerBestScore", 3);
         // isHiddenStageActive = true;
         playerBestScore = PlayerPrefs.GetInt("playerBestScore");
+        hiddenBackground.SetActive(false);
     }
 
     void Update()
@@ -104,6 +107,7 @@ public class GameManager : MonoBehaviour
 
         if (isHiddenStageActive)
         {
+            hiddenBackground.SetActive(true);
             float limit = currentStage.timeLimit;
 
             if (limit > HiddenStageMinimumTimeLimit)
