@@ -41,7 +41,7 @@ public class AudioManager : MonoBehaviour
         audioSource = GetComponent<AudioSource>();
         SceneManager.sceneLoaded += OnSceneLoaded;
 
-        audioSource.clip = this.clip; 
+         
         audioSource.loop = true;
         audioSource.Play();
     }
@@ -92,11 +92,12 @@ public class AudioManager : MonoBehaviour
     {
         if (scene.name == "StartScene")
         {
-            PlayBGM(StartBGM);
+            PlayBGM(StartBGM); 
         }
         else if (scene.name == "MainScene")
         {
             PlayBGM(clip);
+
         }
     }
 
