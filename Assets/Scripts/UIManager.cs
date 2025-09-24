@@ -7,6 +7,10 @@ public class UIManager : MonoBehaviour
 {
     public static UIManager instance;
 
+    public GameObject UnlockImage;
+    public GameObject Ending;
+
+
     private void Awake()
     {
         if (instance == null)
@@ -22,25 +26,25 @@ public class UIManager : MonoBehaviour
     public void OpenStage()
     {
         //스테이지1,2 클리어시 작동
-        if (stagePn != null)
+        if (UnlockImage != null)
         {
-            stagePn.SetActive(true);
+            UnlockImage.SetActive(true);
         }
         else
         {
-            Debug.LogWarning("아래스테이지가 클리어되지 않았습니다");
+            Debug.Log("아래스테이지가 클리어되지 않았습니다");
         }
     }
-    public void Ending()
+    public void Endings()
     {
         //3스테이지 클리어시 엔딩화면
-        if (end != null)
+        if (Ending != null)
         {
-            end.SetActive(true);
+            Ending.SetActive(true);
         }
         else
         {
-            Debug.LogWarning("아래스테이지가 클리어되지 않았습니다");
+            Debug.Log("아래스테이지가 클리어되지 않았습니다");
         }
     }
 }
