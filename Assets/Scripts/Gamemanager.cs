@@ -9,13 +9,13 @@ public class GameManager : MonoBehaviour
     [SerializeField] private StageManager stageManager;
     [SerializeField] private BoardManager boardManager;
 
-    [SerializeField] private Text timeTxT;
-    [SerializeField] private GameObject endTxt;
+    public Text timeTxT;
+    public GameObject endTxt;
 
     [SerializeField] public GameObject selectStageContainer;
     [SerializeField] public GameObject hiddenBackground;
 
-    [SerializeField] private Button startBtn;
+    public Button startBtn;
 
     public Card firstCard;
     public Card secondCard;
@@ -44,7 +44,7 @@ public class GameManager : MonoBehaviour
     private float timeOfLastInput;
     private int hiddenStageClearCount = 0;
 
-    AudioSource audioSource;
+    public AudioSource audioSource;
     public AudioClip matchClip;
 
     void Awake()
@@ -57,17 +57,17 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
-
-
     }
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         selectStageContainer.SetActive(true);
+
         // PlayerPrefs.DeleteAll();
         PlayerPrefs.SetInt("playerBestScore", MaximumStageLevel);
         // isHiddenStageActive = true;
+        timeTxT.gameObject.SetActive(true);
         playerBestScore = PlayerPrefs.GetInt("playerBestScore");
         hiddenBackground.SetActive(false);
     }
@@ -81,7 +81,7 @@ public class GameManager : MonoBehaviour
 
         if (currentTime < stageManager.stage.timeLimit)
         {
-            
+
             timeTxT.text = (stageManager.stage.timeLimit - currentTime).ToString("N2");
 
             if (stageManager.stage.timeLimit - currentTime <= 10.0f && !EffectManager.instance.remain10Sec)
@@ -110,6 +110,7 @@ public class GameManager : MonoBehaviour
 
         if (isHiddenStageActive)
         {
+            // AudioManager.instance.HiddenBGM();
             hiddenBackground.SetActive(true);
             float limit = currentStage.timeLimit;
 

@@ -1,6 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
-using UnityEditor.SceneManagement;
+using System;
 using UnityEngine;
 
 public class UIManager : MonoBehaviour
@@ -23,12 +21,21 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
- 
+
     public void ShowUnlockImage()
     {
         if (UnlockImage != null)
         {
             UnlockImage.SetActive(true);
+            try
+            {
+                Vector3 cameraPos= Camera.main.transform.position;
+                UnlockImage.transform.position = new Vector3(cameraPos.x,cameraPos.y, 2.0f);
+            }
+            catch (Exception ignore)
+            {
+                Console.WriteLine(ignore);
+            }
         }
     }
 
