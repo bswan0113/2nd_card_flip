@@ -1477,9 +1477,9 @@ GameObject:
   - component: {fileID: 2131934222}
   - component: {fileID: 2131934227}
   - component: {fileID: 2131934226}
-  - component: {fileID: 2131934225}
   - component: {fileID: 2131934224}
   - component: {fileID: 2131934223}
+  - component: {fileID: 2131934228}
   m_Layer: 0
   m_Name: '@Manager'
   m_TagString: Untagged
@@ -1549,20 +1549,6 @@ MonoBehaviour:
   - boardSize: 4
     timeLimit: 120
     isHiddenStage: 0
---- !u!114 &2131934225
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2131934221}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0147f46a133739b4286a22ffd7c90893, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  UnlockImage: {fileID: 2084781749}
-  Ending: {fileID: 128728807}
 --- !u!114 &2131934226
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1604,6 +1590,20 @@ MonoBehaviour:
   boardSpacingX: 0.7
   boardSpacingY: 0.7
   mainCamera: {fileID: 1627240588}
+--- !u!114 &2131934228
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2131934221}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0147f46a133739b4286a22ffd7c90893, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  UnlockImage: {fileID: 2084781749}
+  Ending: {fileID: 128728807}
 --- !u!1 &2139256846
 GameObject:
   m_ObjectHideFlags: 0
