@@ -11,6 +11,8 @@ public class EffectManager : MonoBehaviour
 
     public GameObject dust;
 
+    public GameObject bg;
+
     public bool remain10Sec = false;
     public bool isTimerStart = false;
 
@@ -29,7 +31,10 @@ public class EffectManager : MonoBehaviour
 
     void Update()
     {
-
+        if (Input.GetKeyDown("c"))
+        {
+            DisplayBG();
+        }
     }
 
 
@@ -121,5 +126,19 @@ public class EffectManager : MonoBehaviour
         StartCoroutine(GameStartCountdown(3.0f));
         GameManager.instance.selectStageContainer.SetActive(false);
         Time.timeScale = 1.0f;
-    } 
+    }
+
+    public void DisplayBG()
+    {
+        bg.SetActive(true);
+        bg.transform.position = mc.transform.localPosition + new Vector3(0f, 0f, 2f);
+        float height = 1f * (mc.orthographicSize / 5);
+        float width = height * 1.5f;
+        bg.transform.localScale = new Vector3(height, width, 1f);
+    }
+
+    public void UnDisplayBG()
+    {
+        bg.SetActive(false);
+    }
 }
