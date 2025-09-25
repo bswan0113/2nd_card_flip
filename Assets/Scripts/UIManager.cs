@@ -29,8 +29,9 @@ public class UIManager : MonoBehaviour
             UnlockImage.SetActive(true);
             try
             {
-                Vector3 cameraPos= Camera.main.transform.position;
-                UnlockImage.transform.position = new Vector3(cameraPos.x,cameraPos.y, 2.0f);
+                Vector3 cameraPos = Camera.main.transform.position;
+                UnlockImage.transform.position = new Vector3(cameraPos.x, cameraPos.y - 0.4f, 2.0f);
+                //UnlockImage.transform.localScale *= 0.5f;
             }
             catch (Exception ignore)
             {

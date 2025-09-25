@@ -1318,9 +1318,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 2131934226}
-        m_TargetAssemblyTypeName: GameManager, Assembly-CSharp
-        m_MethodName: GameStart
+      - m_Target: {fileID: 2131934223}
+        m_TargetAssemblyTypeName: EffectManager, Assembly-CSharp
+        m_MethodName: GameStartRoutine
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}

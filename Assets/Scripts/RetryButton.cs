@@ -19,7 +19,7 @@ public class RetryButton : MonoBehaviour
             }
             else
             {
-                GameManager gameManager= GameManager.instance;
+                GameManager gameManager = GameManager.instance;
                 UIManager uiManager = UIManager.instance;
                 AudioManager.instance.ClickSFX();
                 AudioManager.instance.NomalBGM();
@@ -28,6 +28,7 @@ public class RetryButton : MonoBehaviour
                 gameManager.endTxt.SetActive(false);
                 gameManager.timeTxT.gameObject.SetActive(true);
                 uiManager.UnlockImage.SetActive(false);
+                DeleteAllCards();
             }
 
         }
@@ -37,6 +38,15 @@ public class RetryButton : MonoBehaviour
         }
 
 
+    }
+
+    public void DeleteAllCards()
+    {
+        GameObject[] cards = GameObject.FindGameObjectsWithTag("Card");
+        foreach (GameObject go in cards)
+        {
+            Destroy(go);
+        }
     }
 
 }
