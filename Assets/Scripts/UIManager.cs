@@ -23,23 +23,23 @@ public class UIManager : MonoBehaviour
             Destroy(gameObject);
         }
     }
-    public void OpenStage()
+ 
+    public void ShowUnlockImage()
     {
-        //스테이지1,2 클리어시 작동
         if (UnlockImage != null)
         {
             UnlockImage.SetActive(true);
         }
-   
     }
-    public void Endings()
+
+    public void ShowEnding()
     {
-        //3스테이지 클리어시 엔딩화면
         if (Ending != null)
         {
             Ending.SetActive(true);
         }
-  
+
     }
+
 }
 

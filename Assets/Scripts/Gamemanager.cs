@@ -133,6 +133,7 @@ public class GameManager : MonoBehaviour
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             totalCardCount -= 2;
+            
 
             if (totalCardCount == 0)
             {
@@ -158,6 +159,18 @@ public class GameManager : MonoBehaviour
             hiddenStageClearCount++;
         }
         CheckBestScore();
+
+        if (UIManager.instance != null)
+        {
+            if (stageLevel < MaximumStageLevel) 
+            {
+                UIManager.instance.ShowUnlockImage();
+            }
+            else if (stageLevel == MaximumStageLevel) 
+            {
+                UIManager.instance.ShowEnding();
+            }
+        }
     }
 
 
