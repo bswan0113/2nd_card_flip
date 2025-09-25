@@ -57,13 +57,16 @@ public class GameManager : MonoBehaviour
         {
             Destroy(gameObject);
         }
+
+
     }
 
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
         selectStageContainer.SetActive(true);
-        // PlayerPrefs.SetInt("playerBestScore", 3);
+        // PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetInt("playerBestScore", MaximumStageLevel);
         // isHiddenStageActive = true;
         playerBestScore = PlayerPrefs.GetInt("playerBestScore");
         hiddenBackground.SetActive(false);
@@ -122,7 +125,7 @@ public class GameManager : MonoBehaviour
         boardManager.CreateBoard(cardDeck, currentStage.boardSize);
 
         currentTime = 0.0f;
-        Time.timeScale = 1.0f;
+        // Time.timeScale = 1.0f;
         endTxt.SetActive(false);
         isGameStarted = true;
         EffectManager.instance.remain10Sec = false;
@@ -158,7 +161,7 @@ public class GameManager : MonoBehaviour
     {
         isGameStarted = false;
         endTxt.SetActive(true);
-        Time.timeScale = 0.0f;
+        // Time.timeScale = 0.0f;
 
         AudioManager.instance.GameClearBGM();
 
@@ -185,7 +188,7 @@ public class GameManager : MonoBehaviour
     private void GameOver()
     {
         isGameStarted = false;
-        Time.timeScale = 0.0f;
+        // Time.timeScale = 0.0f;
         endTxt.SetActive(true);
 
         AudioManager.instance.FailedBGM();

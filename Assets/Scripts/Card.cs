@@ -16,6 +16,7 @@ public class Card : MonoBehaviour
 
     public SpriteRenderer frontImage;
 
+    [SerializeField] private string cardNamePrefix;
     void Start()
     {
         audioSource = GetComponent<AudioSource>();
@@ -24,7 +25,7 @@ public class Card : MonoBehaviour
     public void Setting(int number)
     {
         idx = number;
-        frontImage.sprite = Resources.Load<Sprite>($"rtan{idx}");
+        frontImage.sprite = Resources.Load<Sprite>($"{cardNamePrefix}{idx}");
     }
 
     public void OpenCard() 

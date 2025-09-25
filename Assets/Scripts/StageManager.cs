@@ -8,7 +8,7 @@ using Random = UnityEngine.Random;
 
 public class StageManager : MonoBehaviour
 {
-    public const int TotalImageCount = 8;
+    [SerializeField] private int TotalImageCount = 15;
 
 
     [SerializeField] private Text selectedStageNum;

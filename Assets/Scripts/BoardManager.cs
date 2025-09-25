@@ -73,15 +73,15 @@ public class BoardManager : MonoBehaviour
 
         if (boardSize == 4)
         {
-            data.position = new Vector2(1f,1.5f);
+            data.position = new Vector2(1.3f,2.0f);
             data.cameraSize = 2.5f;
         }else if (boardSize == 6)
         {
-            data.position = new Vector2(1.7f,2f);
+            data.position = new Vector2(2.0f,3.0f);
             data.cameraSize = 4f;
         }else if (boardSize == 8)
         {
-            data.position = new Vector2(2.5f,3f);
+            data.position = new Vector2(2.7f,3.5f);
             data.cameraSize = 5f;
         }
         mainCamera.transform.position = data.position;
