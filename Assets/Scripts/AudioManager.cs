@@ -7,20 +7,20 @@ public class AudioManager : MonoBehaviour
 
     AudioSource audioSource;
    
-   //BGM º¯¼öµéÀÔ´Ï´Ù.
-    public AudioClip clip; //±âº» BGM, ²¿ÀÏ±îºÁ ±âº» BGMÀÇ º¯¼öÀÌ¸§Àº µğÆúÆ®¿´´ø clipÀ¸·Î ÇØ³ù½À´Ï´Ù.
-    public AudioClip hurryBGM; // Á¦ÇÑ½Ã°£ ¾ó¸¶ ¾È³²¾ÒÀ»¶§ BGM
-    public AudioClip clearBGM; // ½ºÅ×ÀÌÁö Å¬¸®¾î BGM
-    public AudioClip failBGM; // ½ºÅ×ÀÌÁö ½ÇÆĞ BGM
-    public AudioClip hiddenBGM; // È÷µç ½ºÅ×ÀÌÁö ÁøÀÔ BGM
-    public AudioClip StartBGM; // (StartScene) Àü¿ë BGM
+   //BGM ë³€ìˆ˜ë“¤ì…ë‹ˆë‹¤.
+    public AudioClip clip; //ê¸°ë³¸ BGM, ê¼¬ì¼ê¹Œë´ ê¸°ë³¸ BGMì˜ ë³€ìˆ˜ì´ë¦„ì€ ë””í´íŠ¸ì˜€ë˜ clipìœ¼ë¡œ í•´ë†¨ìŠµë‹ˆë‹¤.
+    public AudioClip hurryBGM; // ì œí•œì‹œê°„ ì–¼ë§ˆ ì•ˆë‚¨ì•˜ì„ë•Œ BGM
+    public AudioClip clearBGM; // ìŠ¤í…Œì´ì§€ í´ë¦¬ì–´ BGM
+    public AudioClip failBGM; // ìŠ¤í…Œì´ì§€ ì‹¤íŒ¨ BGM
+    public AudioClip hiddenBGM; // íˆë“  ìŠ¤í…Œì´ì§€ ì§„ì… BGM
+    public AudioClip StartBGM; // (StartScene) ì „ìš© BGM
 
 
-    //È¿°úÀ½ º¯¼öµéÀÔ´Ï´Ù.
-    public AudioClip matchMiss; //Ä«µå Æ²¸²
-    public AudioClip Matched; //Ä«µå ¸ÂÃã
-    public AudioClip cardFlip; //Ä«µå µÚÁı±â È¿°úÀ½
-    public AudioClip buttonClickSFX; //¹öÆ° Å¬¸¯ È¿°úÀ½ (°ÔÀÓ ½ÃÀÛ ¹öÆ°¿¡µµ ÀÀ¿ë°¡´ÉÇÑ È¿°úÀ½)
+    //íš¨ê³¼ìŒ ë³€ìˆ˜ë“¤ì…ë‹ˆë‹¤.
+    public AudioClip matchMiss; //ì¹´ë“œ í‹€ë¦¼
+    public AudioClip Matched; //ì¹´ë“œ ë§ì¶¤
+    public AudioClip cardFlip; //ì¹´ë“œ ë’¤ì§‘ê¸° íš¨ê³¼ìŒ
+    public AudioClip buttonClickSFX; //ë²„íŠ¼ í´ë¦­ íš¨ê³¼ìŒ (ê²Œì„ ì‹œì‘ ë²„íŠ¼ì—ë„ ì‘ìš©ê°€ëŠ¥í•œ íš¨ê³¼ìŒ)
 
     private void Awake()
     {
@@ -45,11 +45,19 @@ public class AudioManager : MonoBehaviour
 
         audioSource.clip = this.clip;
 
-
+        if (SceneManager.GetActiveScene().name == "StartScene" && StartBGM != null)
+        {
+            PlayBGM(StartBGM);
+        }
+        else
+        {
+            audioSource.clip = clip;
+            audioSource.Play();
+        }
     }
-    // ÀÌÇÏ´Â BGM °ü·Ã ¸Å¼­µåµé ÀÔ´Ï´Ù ========================
+    // ì´í•˜ëŠ” BGM ê´€ë ¨ ë§¤ì„œë“œë“¤ ì…ë‹ˆë‹¤ ========================
 
-    public void PlayBGM(AudioClip clip) //°°Àº °îÀÏ °æ¿ì ±³Ã¼ ÇÏÁö ¾Ê±â À§ÇÑ ¸Å¼­µåÀÔ´Ï´Ù.
+    public void PlayBGM(AudioClip clip) //ê°™ì€ ê³¡ì¼ ê²½ìš° êµì²´ í•˜ì§€ ì•Šê¸° ìœ„í•œ ë§¤ì„œë“œì…ë‹ˆë‹¤.
     {
         if (audioSource.clip == clip) return;
         audioSource.clip = clip;
@@ -57,7 +65,7 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
     }
 
-    public void ChangeTohurryBGM() //ÀÏÁ¤ ½Ã°£ ÀÌÇÏÀÏ °æ¿ì Ãâ·ÂµÇ´Â BGM
+    public void ChangeTohurryBGM() //ì¼ì • ì‹œê°„ ì´í•˜ì¼ ê²½ìš° ì¶œë ¥ë˜ëŠ” BGM
     {
         if (audioSource.clip != hurryBGM)
         {
@@ -68,29 +76,29 @@ public class AudioManager : MonoBehaviour
         
     }
 
-    public void GameClearBGM() //°ÔÀÓÀÌ Å¬¸®¾î µÆÀ»¶§ BGM
+    public void GameClearBGM() //ê²Œì„ì´ í´ë¦¬ì–´ ëì„ë•Œ BGM
     {
         audioSource.clip = clearBGM;
         audioSource.loop = false;
         audioSource.Play();
     }
 
-    public void FailedBGM() //½Ã°£³»·Î Å¬¸®¾î¸¦ ¸øÇßÀ»¶§ BGM
+    public void FailedBGM() //ì‹œê°„ë‚´ë¡œ í´ë¦¬ì–´ë¥¼ ëª»í–ˆì„ë•Œ BGM
     {
         audioSource.clip = failBGM;
         audioSource.loop = false;
         audioSource.Play();
     }
 
-    public void HiddenBGM() //È÷µç½ºÅ×ÀÌÁö·Î µ¹ÀÔÇÏ´Â ½ºÅ×ÀÌÁö Å¬¸®¾î½Ã BGM
+    public void HiddenBGM() //íˆë“ ìŠ¤í…Œì´ì§€ë¡œ ëŒì…í•˜ëŠ” ìŠ¤í…Œì´ì§€ í´ë¦¬ì–´ì‹œ BGM
     {
-        // ½ºÅ×ÀÌÁö ·ÎÁ÷ÀÌ ÇÊ¿äÇÒ°Å°°À½
+        // ìŠ¤í…Œì´ì§€ ë¡œì§ì´ í•„ìš”í• ê±°ê°™ìŒ
         audioSource.clip = hiddenBGM;
         audioSource.loop = false;
         audioSource.Play();
     }
 
-    public void OnSceneLoaded(Scene scene, LoadSceneMode mode) // ½ÃÀÛÈ­¸é(StartScene)¿¡¼­ÀÇ BGM°ú (MainScene)¿¡¼­ÀÇ BGMÀ» ¹Ù²Ù±â ·ÎÁ÷ÀÔ´Ï´Ù(½ÇÇè)
+    public void OnSceneLoaded(Scene scene, LoadSceneMode mode) // ì‹œì‘í™”ë©´(StartScene)ì—ì„œì˜ BGMê³¼ (MainScene)ì—ì„œì˜ BGMì„ ë°”ê¾¸ê¸° ë¡œì§ì…ë‹ˆë‹¤(ì‹¤í—˜)
     {
         if (scene.name == "StartScene")
         {
@@ -103,25 +111,25 @@ public class AudioManager : MonoBehaviour
         }
     }
 
-    // ÀÌÇÏ´Â È¿°úÀ½ °ü·Ã ¸Å¼­µåµé ÀÔ´Ï´Ù. ============================
+    // ì´í•˜ëŠ” íš¨ê³¼ìŒ ê´€ë ¨ ë§¤ì„œë“œë“¤ ì…ë‹ˆë‹¤. ============================
 
 
-    public void Cardmatched() // Ä«µå ÀÏÄ¡½Ã È¿°úÀ½
+    public void Cardmatched() // ì¹´ë“œ ì¼ì¹˜ì‹œ íš¨ê³¼ìŒ
     {
         audioSource.PlayOneShot(Matched);
     }
 
-    public void CardMiss() // Ä«µå ºÒÀÏÄ¡½Ã È¿°úÀ½
+    public void CardMiss() // ì¹´ë“œ ë¶ˆì¼ì¹˜ì‹œ íš¨ê³¼ìŒ
     {
         audioSource.PlayOneShot(matchMiss);
     }
 
-    public void ClickSFX()  // ½ÃÀÛ ¹öÆ°À» Æ÷ÇÔÇÑ ´ëºÎºĞÀÇ ¹öÆ°(´ÙÀ½½ºÅ×ÀÌÁö¶ó´ø°¡) Å¬¸¯ »ç¿îµå·Î È°¿ëÇÏ±â ÁÁ°Ô Click ÀÌ¶õ ÀÌ¸§À¸·Î Áö¾ú½À´Ï´Ù.
+    public void ClickSFX()  // ì‹œì‘ ë²„íŠ¼ì„ í¬í•¨í•œ ëŒ€ë¶€ë¶„ì˜ ë²„íŠ¼(ë‹¤ìŒìŠ¤í…Œì´ì§€ë¼ë˜ê°€) í´ë¦­ ì‚¬ìš´ë“œë¡œ í™œìš©í•˜ê¸° ì¢‹ê²Œ Click ì´ë€ ì´ë¦„ìœ¼ë¡œ ì§€ì—ˆìŠµë‹ˆë‹¤.
     {
         audioSource.PlayOneShot(buttonClickSFX);
     }
 
-    public void Cardflip()  // Ä«µå µÚÁı±â È¿°úÀ½
+    public void Cardflip()  // ì¹´ë“œ ë’¤ì§‘ê¸° íš¨ê³¼ìŒ
     {
         audioSource.PlayOneShot(cardFlip);
     }
