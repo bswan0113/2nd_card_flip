@@ -765,6 +765,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1f207b08d7deb84bb3eb1f61ae4d9dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  TotalImageCount: 15
   selectedStageNum: {fileID: 1262379062}
   allStages:
   - boardSize: 4
@@ -786,7 +787,7 @@ GameObject:
   m_Component:
   - component: {fileID: 930515306}
   - component: {fileID: 930515305}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: Background
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1024,6 +1025,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c3bcf054875c19942a9b85909a760de7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isInit: 1
 --- !u!1 &1262379060
 GameObject:
   m_ObjectHideFlags: 0
@@ -1405,11 +1407,13 @@ MonoBehaviour:
   timeTxT: {fileID: 609566555}
   endTxt: {fileID: 1207603591}
   selectStageContainer: {fileID: 156470611}
+  hiddenBackground: {fileID: 0}
   startBtn: {fileID: 1838437603}
   firstCard: {fileID: 0}
   secondCard: {fileID: 0}
   totalCardCount: 0
   commandTimeout: 2
+  audioSource: {fileID: 0}
   matchClip: {fileID: 0}
 --- !u!82 &1840963184
 AudioSource:

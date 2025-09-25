@@ -130,6 +130,15 @@ public class GameManager : MonoBehaviour
         endTxt.SetActive(false);
         isGameStarted = true;
         EffectManager.instance.remain10Sec = false;
+
+        if (isHiddenStageActive)
+        {
+            EffectManager.instance.UnDisplayBG();
+        }
+        else
+        {
+            EffectManager.instance.DisplayBG();
+        }
     }
 
     public void MatchCards()

@@ -131,7 +131,7 @@ public class EffectManager : MonoBehaviour
     public void DisplayBG()
     {
         bg.SetActive(true);
-        bg.transform.position = mc.transform.localPosition + new Vector3(0f, 0f, 2f);
+        bg.transform.position = new Vector3(mc.transform.localPosition.x, mc.transform.localPosition.y, 2f);
         float height = 1f * (mc.orthographicSize / 5);
         float width = height * 1.5f;
         bg.transform.localScale = new Vector3(height, width, 1f);
