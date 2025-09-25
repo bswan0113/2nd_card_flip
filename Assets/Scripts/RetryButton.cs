@@ -22,6 +22,7 @@ public class RetryButton : MonoBehaviour
                 GameManager gameManager= GameManager.instance;
                 UIManager uiManager = UIManager.instance;
                 AudioManager.instance.ClickSFX();
+                AudioManager.instance.NomalBGM();
                 gameManager.selectStageContainer.gameObject.SetActive(true);
                 gameManager.hiddenBackground.SetActive(false);
                 gameManager.endTxt.SetActive(false);

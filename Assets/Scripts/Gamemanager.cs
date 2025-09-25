@@ -110,7 +110,7 @@ public class GameManager : MonoBehaviour
 
         if (isHiddenStageActive)
         {
-            // AudioManager.instance.HiddenBGM();
+            AudioManager.instance.HiddenBGM();
             hiddenBackground.SetActive(true);
             float limit = currentStage.timeLimit;
 
