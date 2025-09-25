@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 3273436669820987230}
   - component: {fileID: 8471415522991548841}
   - component: {fileID: 2387496136755528827}
+  - component: {fileID: 730725998779644384}
   m_Layer: 0
   m_Name: Dust
   m_TagString: Untagged
@@ -112,3 +113,15 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &730725998779644384
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6596833381722989830}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c7dee175c4e7e0b46bd940ec60c22a91, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
