@@ -98,6 +98,13 @@ public class AudioManager : MonoBehaviour
         audioSource.Play();
     }
 
+    public void NomalBGM() //clip으로 선정된 MainScene 전용 BGM
+    {
+        audioSource.clip = clip;
+        audioSource.loop = true;
+        audioSource.Play();
+    }
+
     public void OnSceneLoaded(Scene scene, LoadSceneMode mode) // 시작화면(StartScene)에서의 BGM과 (MainScene)에서의 BGM을 바꾸기 로직입니다(실험)
     {
         if (scene.name == "StartScene")
