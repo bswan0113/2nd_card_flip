@@ -133,7 +133,7 @@ public class GameManager : MonoBehaviour
 
         if (firstCard.idx == secondCard.idx)
         {
-            // audioSource.PlayOneShot(matchClip);
+            AudioManager.instance.Cardmatched();
             firstCard.DestroyCard();
             secondCard.DestroyCard();
             totalCardCount -= 2;
@@ -145,6 +145,7 @@ public class GameManager : MonoBehaviour
         }
         else
         {
+            AudioManager.instance.CardMiss();
             firstCard.CloseCard();
             secondCard.CloseCard();
         }
@@ -157,6 +158,9 @@ public class GameManager : MonoBehaviour
         isGameStarted = false;
         endTxt.SetActive(true);
         Time.timeScale = 0.0f;
+
+        AudioManager.instance.GameClearBGM();
+
         if (isHiddenStageActive && stageLevel == MaximumStageLevel)
         {
             hiddenStageClearCount++;
@@ -170,6 +174,9 @@ public class GameManager : MonoBehaviour
         isGameStarted = false;
         Time.timeScale = 0.0f;
         endTxt.SetActive(true);
+
+        AudioManager.instance.FailedBGM();
+
     }
 
     public void SelectStage(bool isNextStage)
